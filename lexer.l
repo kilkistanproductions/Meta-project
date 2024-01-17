@@ -4,7 +4,8 @@
 %}
 
 %%
-"int"        {printf("%s \t- KEYWORD\n", yytext) ;return INT; }
+"int"        {printf("%s \t- KEYWORD\n", yytext) ;return INT;  }
+"char"       {printf("%s \t- KEYWORD\n", yytext) ;return CHAR; }
 "main"       {printf("%s \t- KEYWORD\n", yytext) ;return MAIN; }
 "{"          {printf("%s \t- KEYWORD\n", yytext) ;return LEFT_BRACE; }
 "}"          {printf("%s \t- KEYWORD\n", yytext) ;return RIGHT_BRACE; }
