@@ -58,14 +58,29 @@ extern int yydebug;
     MAIN = 259,                    /* MAIN  */
     LEFT_BRACE = 260,              /* LEFT_BRACE  */
     RIGHT_BRACE = 261,             /* RIGHT_BRACE  */
-    UNKNOWN_CHARACTER = 262        /* UNKNOWN_CHARACTER  */
+    UNKNOWN_CHARACTER = 262,       /* UNKNOWN_CHARACTER  */
+    DATATYPE = 263,                /* DATATYPE  */
+    IDENTIFIER = 264,              /* IDENTIFIER  */
+    EQUALS = 265,                  /* EQUALS  */
+    INTEGER = 266,                 /* INTEGER  */
+    SEMICOLON = 267                /* SEMICOLON  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef int YYSTYPE;
+union YYSTYPE
+{
+#line 11 "parser.y"
+
+    int integer;
+    char *string;
+
+#line 81 "parser.tab.h"
+
+};
+typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif
