@@ -63,7 +63,9 @@ extern int yydebug;
     IDENTIFIER = 264,              /* IDENTIFIER  */
     EQUALS = 265,                  /* EQUALS  */
     INTEGER = 266,                 /* INTEGER  */
-    SEMICOLON = 267                /* SEMICOLON  */
+    SEMICOLON = 267,               /* SEMICOLON  */
+    STRING = 268,                  /* STRING  */
+    NUMERIC_DATATYPE = 269         /* NUMERIC_DATATYPE  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -77,7 +79,7 @@ union YYSTYPE
     int integer;
     char *string;
 
-#line 81 "parser.tab.h"
+#line 83 "parser.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

@@ -118,10 +118,12 @@ enum yysymbol_kind_t
   YYSYMBOL_EQUALS = 10,                    /* EQUALS  */
   YYSYMBOL_INTEGER = 11,                   /* INTEGER  */
   YYSYMBOL_SEMICOLON = 12,                 /* SEMICOLON  */
-  YYSYMBOL_YYACCEPT = 13,                  /* $accept  */
-  YYSYMBOL_program = 14,                   /* program  */
-  YYSYMBOL_main_declaration = 15,          /* main_declaration  */
-  YYSYMBOL_variable_declaration = 16       /* variable_declaration  */
+  YYSYMBOL_STRING = 13,                    /* STRING  */
+  YYSYMBOL_NUMERIC_DATATYPE = 14,          /* NUMERIC_DATATYPE  */
+  YYSYMBOL_YYACCEPT = 15,                  /* $accept  */
+  YYSYMBOL_program = 16,                   /* program  */
+  YYSYMBOL_main_declaration = 17,          /* main_declaration  */
+  YYSYMBOL_variable_declaration = 18       /* variable_declaration  */
 };
 typedef enum yysymbol_kind_t yysymbol_kind_t;
 
@@ -447,21 +449,21 @@ union yyalloc
 #endif /* !YYCOPY_NEEDED */
 
 /* YYFINAL -- State number of the termination state.  */
-#define YYFINAL  8
+#define YYFINAL  10
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   16
+#define YYLAST   19
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  13
+#define YYNTOKENS  15
 /* YYNNTS -- Number of nonterminals.  */
 #define YYNNTS  4
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  5
+#define YYNRULES  6
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  15
+#define YYNSTATES  20
 
 /* YYMAXUTOK -- Last valid token kind.  */
-#define YYMAXUTOK   267
+#define YYMAXUTOK   269
 
 
 /* YYTRANSLATE(TOKEN-NUM) -- Symbol number corresponding to TOKEN-NUM
@@ -501,14 +503,14 @@ static const yytype_int8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
-       5,     6,     7,     8,     9,    10,    11,    12
+       5,     6,     7,     8,     9,    10,    11,    12,    13,    14
 };
 
 #if YYDEBUG
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    21,    21,    24,    30,    33
+       0,    21,    21,    24,    30,    33,    39
 };
 #endif
 
@@ -526,8 +528,9 @@ static const char *const yytname[] =
 {
   "\"end of file\"", "error", "\"invalid token\"", "INT", "MAIN",
   "LEFT_BRACE", "RIGHT_BRACE", "UNKNOWN_CHARACTER", "DATATYPE",
-  "IDENTIFIER", "EQUALS", "INTEGER", "SEMICOLON", "$accept", "program",
-  "main_declaration", "variable_declaration", YY_NULLPTR
+  "IDENTIFIER", "EQUALS", "INTEGER", "SEMICOLON", "STRING",
+  "NUMERIC_DATATYPE", "$accept", "program", "main_declaration",
+  "variable_declaration", YY_NULLPTR
 };
 
 static const char *
@@ -551,8 +554,8 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-      -3,    -2,    -8,     3,    -9,    -9,    -1,    -4,    -9,     1,
-       0,     2,     4,    -9,    -9
+      -3,    -2,    -8,    -6,     4,    -9,    -9,     1,    -1,     0,
+      -9,     2,     3,    -4,     5,     6,     7,    -9,    -9,    -9
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -560,8 +563,8 @@ static const yytype_int8 yypact[] =
    means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
-       0,     0,     0,     0,     2,     4,     0,     0,     1,     0,
-       0,     0,     0,     3,     5
+       0,     0,     0,     0,     0,     2,     4,     0,     0,     0,
+       1,     0,     0,     0,     0,     0,     0,     3,     6,     5
 };
 
 /* YYPGOTO[NTERM-NUM].  */
@@ -573,7 +576,7 @@ static const yytype_int8 yypgoto[] =
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-       0,     3,     4,     5
+       0,     4,     5,     6
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -581,34 +584,34 @@ static const yytype_int8 yydefgoto[] =
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-       1,     7,     6,     8,     9,     2,    10,    11,     0,     0,
-       0,    12,     0,     0,    13,     0,    14
+       1,     8,     7,     9,    10,     2,    11,    16,    14,    12,
+      13,     3,     0,     0,     0,     0,    15,    17,    18,    19
 };
 
 static const yytype_int8 yycheck[] =
 {
-       3,     9,     4,     0,     5,     8,    10,     6,    -1,    -1,
-      -1,    11,    -1,    -1,    12,    -1,    12
+       3,     9,     4,     9,     0,     8,     5,    11,     6,    10,
+      10,    14,    -1,    -1,    -1,    -1,    13,    12,    12,    12
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
    state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
-       0,     3,     8,    14,    15,    16,     4,     9,     0,     5,
-      10,     6,    11,    12,    12
+       0,     3,     8,    14,    16,    17,    18,     4,     9,     9,
+       0,     5,    10,    10,     6,    13,    11,    12,    12,    12
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
-       0,    13,    14,    15,    14,    16
+       0,    15,    16,    17,    16,    18,    18
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr2[] =
 {
-       0,     2,     1,     5,     1,     5
+       0,     2,     1,     5,     1,     5,     5
 };
 
 
@@ -1076,19 +1079,27 @@ yyreduce:
                     {
                         printf("Found a main function!\n");
                     }
-#line 1080 "parser.tab.c"
+#line 1083 "parser.tab.c"
     break;
 
-  case 5: /* variable_declaration: DATATYPE IDENTIFIER EQUALS INTEGER SEMICOLON  */
+  case 5: /* variable_declaration: NUMERIC_DATATYPE IDENTIFIER EQUALS INTEGER SEMICOLON  */
 #line 34 "parser.y"
                         {
-                            printf("Variable declaration");
+                            printf("Numeric variable declaration");
                         }
-#line 1088 "parser.tab.c"
+#line 1091 "parser.tab.c"
+    break;
+
+  case 6: /* variable_declaration: DATATYPE IDENTIFIER EQUALS STRING SEMICOLON  */
+#line 40 "parser.y"
+                        {
+                            printf("Char type variable declaration");
+                        }
+#line 1099 "parser.tab.c"
     break;
 
 
-#line 1092 "parser.tab.c"
+#line 1103 "parser.tab.c"
 
       default: break;
     }
@@ -1281,7 +1292,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 38 "parser.y"
+#line 44 "parser.y"
 
 
 int main() {

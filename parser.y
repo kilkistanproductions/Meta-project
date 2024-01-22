@@ -14,7 +14,7 @@ int yylex(void);
 }
 
 %token INT MAIN LEFT_BRACE RIGHT_BRACE UNKNOWN_CHARACTER
-%token DATATYPE IDENTIFIER EQUALS INTEGER SEMICOLON
+%token DATATYPE IDENTIFIER EQUALS INTEGER SEMICOLON STRING NUMERIC_DATATYPE
  
 %%
 
@@ -30,9 +30,15 @@ main_declaration: INT MAIN LEFT_BRACE RIGHT_BRACE SEMICOLON
 program: variable_declaration
         ;
 
-variable_declaration:DATATYPE IDENTIFIER EQUALS INTEGER SEMICOLON
+variable_declaration:NUMERIC_DATATYPE IDENTIFIER EQUALS INTEGER SEMICOLON
                         {
-                            printf("Variable declaration");
+                            printf("Numeric variable declaration");
+                        }
+                        ;
+
+variable_declaration:DATATYPE IDENTIFIER EQUALS STRING SEMICOLON
+                        {
+                            printf("Char type variable declaration");
                         }
                         ;
 %%
