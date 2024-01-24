@@ -5,7 +5,7 @@
 
 %%
 "char"       {printf("%s \t- DATATYPE\n", yytext) ;return DATATYPE; }
-"string"      {printf("%s \t- DATATYPE\n", yytext) ;return DATATYPE; }
+"string"     {printf("%s \t- DATATYPE\n", yytext) ;return DATATYPE; }
 "float"      {printf("%s \t- NUMERIC_DATATYPE\n", yytext) ;return NUMERIC_DATATYPE; }
 "int"        {printf("%s \t- NUMERIC_DATATYPE\n", yytext) ;return NUMERIC_DATATYPE; }
 "double"     {printf("%s \t- NUMERIC_DATATYPE\n", yytext) ;return NUMERIC_DATATYPE; }
@@ -17,6 +17,9 @@
 "main"       {printf("%s \t- KEYWORD\n", yytext) ;return MAIN; }
 "{"          {printf("%s \t- KEYWORD\n", yytext) ;return LEFT_BRACE; }
 "}"          {printf("%s \t- KEYWORD\n", yytext) ;return RIGHT_BRACE; }
+
+"//".*                        {printf("%s \t- SINGLE LINE COMMENT\n", yytext);}
+"/*"([^*]|"*"+[^*/])*"*"+"/"  {printf("%s \t- MULTI LINE COMMENT\n", yytext);}
 
 ;            {printf("%s \t- SEMICOLON DELIMITER\n", yytext); return SEMICOLON;}
 
