@@ -18,8 +18,12 @@ int yylex(void);
  
 %%
 
-program: main_declaration
+program: c-type-langueage
         ;
+
+c-type-langueage: main_declaration
+                | variable_declaration_char
+                | variable_declaration_int
 
 main_declaration: INT MAIN LEFT_BRACE RIGHT_BRACE SEMICOLON
                     {
@@ -27,16 +31,13 @@ main_declaration: INT MAIN LEFT_BRACE RIGHT_BRACE SEMICOLON
                     }
                     ;
 
-program: variable_declaration
-        ;
-
-variable_declaration:NUMERIC_DATATYPE IDENTIFIER EQUALS INTEGER SEMICOLON
+variable_declaration_char:NUMERIC_DATATYPE IDENTIFIER EQUALS INTEGER SEMICOLON
                         {
                             printf("Numeric variable declaration");
                         }
                         ;
 
-variable_declaration:DATATYPE IDENTIFIER EQUALS STRING SEMICOLON
+variable_declaration_int:DATATYPE IDENTIFIER EQUALS STRING SEMICOLON
                         {
                             printf("Char type variable declaration");
                         }
