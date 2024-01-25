@@ -476,8 +476,8 @@ int yy_flex_debug = 0;
 char *yytext;
 #line 1 "lexer.l"
 #line 2 "lexer.l"
-#include <stdio.h>
-#include "parser.tab.h"  // Bison-generated header file
+	#include <stdio.h>
+	#include "parser.tab.h"  // Bison-generated header file
 #line 481 "lex.yy.c"
 #line 482 "lex.yy.c"
 

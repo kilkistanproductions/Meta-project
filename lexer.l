@@ -1,7 +1,7 @@
 %{
-#include <stdio.h>
-#include "parser.tab.h"  // Bison-generated header file
-%}
+	#include <stdio.h>
+	#include "parser.tab.h"  // Bison-generated header file
+%} 
 
 %%
 "int"        { printf("%s \t- KEYWORD\n", yytext); return INT; }

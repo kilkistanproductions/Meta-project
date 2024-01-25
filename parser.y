@@ -27,12 +27,12 @@ int yylex(void);
 %left '*''/'
 %right EQ
 
+
 %%
 
 program: main_declaration
         | init_variables
         | if_statement
-        | expr
         ;
 
 main_declaration: INT MAIN LEFT_BRACE RIGHT_BRACE
@@ -41,13 +41,6 @@ main_declaration: INT MAIN LEFT_BRACE RIGHT_BRACE
                     }
                     ;
 
-expr: expr EQ expr
-    | expr '=' expr
-    | expr '+' expr
-    | expr '-' expr
-    | expr '*' expr
-    | expr '/' expr
-    ;
 
 init_variables:
                 _X EQ NUM SEMICOLON { x = $3; }

@@ -142,16 +142,15 @@ enum yysymbol_kind_t
   YYSYMBOL_33_ = 33,                       /* '-'  */
   YYSYMBOL_34_ = 34,                       /* '*'  */
   YYSYMBOL_35_ = 35,                       /* '/'  */
-  YYSYMBOL_36_ = 36,                       /* '='  */
-  YYSYMBOL_YYACCEPT = 37,                  /* $accept  */
-  YYSYMBOL_program = 38,                   /* program  */
-  YYSYMBOL_main_declaration = 39,          /* main_declaration  */
-  YYSYMBOL_init_variables = 40,            /* init_variables  */
-  YYSYMBOL_41_1 = 41,                      /* $@1  */
-  YYSYMBOL_if_statement = 42,              /* if_statement  */
-  YYSYMBOL_else_condition = 43,            /* else_condition  */
-  YYSYMBOL_then = 44,                      /* then  */
-  YYSYMBOL_cond = 45                       /* cond  */
+  YYSYMBOL_YYACCEPT = 36,                  /* $accept  */
+  YYSYMBOL_program = 37,                   /* program  */
+  YYSYMBOL_main_declaration = 38,          /* main_declaration  */
+  YYSYMBOL_init_variables = 39,            /* init_variables  */
+  YYSYMBOL_40_1 = 40,                      /* $@1  */
+  YYSYMBOL_if_statement = 41,              /* if_statement  */
+  YYSYMBOL_else_condition = 42,            /* else_condition  */
+  YYSYMBOL_then = 43,                      /* then  */
+  YYSYMBOL_cond = 44                       /* cond  */
 };
 typedef enum yysymbol_kind_t yysymbol_kind_t;
 
@@ -482,7 +481,7 @@ union yyalloc
 #define YYLAST   60
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  37
+#define YYNTOKENS  36
 /* YYNNTS -- Number of nonterminals.  */
 #define YYNNTS  9
 /* YYNRULES -- Number of rules.  */
@@ -511,7 +510,7 @@ static const yytype_int8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,    34,    32,     2,    33,     2,    35,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,    36,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -540,9 +539,9 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    32,    32,    33,    34,    38,    53,    53,    58,    64,
-      65,    68,    71,    72,    73,    74,    76,    77,    78,    79,
-      81,    82,    83,    84,    86,    87,    88,    89
+       0,    33,    33,    34,    35,    38,    46,    46,    51,    57,
+      58,    61,    64,    65,    66,    67,    69,    70,    71,    72,
+      74,    75,    76,    77,    79,    80,    81,    82
 };
 #endif
 
@@ -563,7 +562,7 @@ static const char *const yytname[] =
   "INT", "MAIN", "VAR", "SEMICOLON", "PRINTF", "IF", "ELSE", "ELSEIF",
   "_VAR", "NUM", "_X", "_Y", "_Z", "EQ", "EQEQ", "LESS", "MORE", "LET",
   "MET", "DIF", "NOT_EQ", "OR", "AND", "NOT", "'+'", "'-'", "'*'", "'/'",
-  "'='", "$accept", "program", "main_declaration", "init_variables", "$@1",
+  "$accept", "program", "main_declaration", "init_variables", "$@1",
   "if_statement", "else_condition", "then", "cond", YY_NULLPTR
 };
 
@@ -652,21 +651,21 @@ static const yytype_int8 yycheck[] =
    state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
-       0,     8,    13,    18,    38,    39,    40,    42,     9,     5,
-      21,     0,     3,    18,    19,    45,    17,     4,    22,    23,
+       0,     8,    13,    18,    37,    38,    39,    41,     9,     5,
+      21,     0,     3,    18,    19,    44,    17,     4,    22,    23,
       24,    28,    22,    23,    24,    28,     6,    11,    16,    17,
       16,    17,    16,    17,    16,    17,    16,    17,    16,    17,
-      16,    17,    16,    17,     3,    41,    20,    44,    19,    21,
-       4,    21,    17,    14,    15,    43,    17,    11,     3,     5,
-      11,    44,    45,     4,     6,    11,     3,    44,     4,    43
+      16,    17,    16,    17,     3,    40,    20,    43,    19,    21,
+       4,    21,    17,    14,    15,    42,    17,    11,     3,     5,
+      11,    43,    44,     4,     6,    11,     3,    43,     4,    42
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
-       0,    37,    38,    38,    38,    39,    41,    40,    42,    43,
-      43,    44,    45,    45,    45,    45,    45,    45,    45,    45,
-      45,    45,    45,    45,    45,    45,    45,    45
+       0,    36,    37,    37,    37,    38,    40,    39,    41,    42,
+      42,    43,    44,    44,    44,    44,    44,    44,    44,    44,
+      44,    44,    44,    44,    44,    44,    44,    44
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
@@ -1142,145 +1141,145 @@ yyreduce:
                     {
                         printf("Found a main function!\n");
                     }
-#line 1146 "parser.tab.c"
+#line 1145 "parser.tab.c"
     break;
 
   case 6: /* $@1: %empty  */
-#line 53 "parser.y"
+#line 46 "parser.y"
                                     { x = (yyvsp[-1].a); }
-#line 1152 "parser.tab.c"
+#line 1151 "parser.tab.c"
     break;
 
   case 7: /* init_variables: _X EQ NUM SEMICOLON $@1 _Y EQ NUM SEMICOLON  */
-#line 54 "parser.y"
+#line 47 "parser.y"
                                     { y = (yyvsp[-6].a); }
-#line 1158 "parser.tab.c"
+#line 1157 "parser.tab.c"
     break;
 
   case 8: /* if_statement: IF LEFT_PARENTH cond RIGHT_PARENTH LEFT_BRACE then RIGHT_BRACE else_condition  */
-#line 59 "parser.y"
+#line 52 "parser.y"
             {
                 { if ((yyvsp[-5].a) == 1) { z = (yyvsp[-2].a); } printf("\nz=%d\n", z); }
             }
-#line 1166 "parser.tab.c"
+#line 1165 "parser.tab.c"
     break;
 
   case 9: /* else_condition: ELSE LEFT_BRACE then RIGHT_BRACE SEMICOLON  */
-#line 64 "parser.y"
+#line 57 "parser.y"
                                                            { z = (yyvsp[-2].a); }
-#line 1172 "parser.tab.c"
+#line 1171 "parser.tab.c"
     break;
 
   case 10: /* else_condition: ELSEIF LEFT_PARENTH cond RIGHT_PARENTH LEFT_BRACE then RIGHT_BRACE else_condition  */
-#line 65 "parser.y"
+#line 58 "parser.y"
                                                                                                 { if ((yyvsp[-5].a) == 1) { z = (yyvsp[-2].a); } }
-#line 1178 "parser.tab.c"
+#line 1177 "parser.tab.c"
     break;
 
   case 11: /* then: _Z EQ NUM SEMICOLON  */
-#line 68 "parser.y"
+#line 61 "parser.y"
                           { (yyval.a) = (yyvsp[-1].a); }
-#line 1184 "parser.tab.c"
+#line 1183 "parser.tab.c"
     break;
 
   case 12: /* cond: _X LESS NUM  */
-#line 71 "parser.y"
+#line 64 "parser.y"
                            { if (x < (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1190 "parser.tab.c"
+#line 1189 "parser.tab.c"
     break;
 
   case 13: /* cond: _X MORE NUM  */
-#line 72 "parser.y"
+#line 65 "parser.y"
                            { if (x > (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1196 "parser.tab.c"
+#line 1195 "parser.tab.c"
     break;
 
   case 14: /* cond: _X EQEQ NUM  */
-#line 73 "parser.y"
+#line 66 "parser.y"
                            { if (x == (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1202 "parser.tab.c"
+#line 1201 "parser.tab.c"
     break;
 
   case 15: /* cond: _X NOT_EQ NUM  */
-#line 74 "parser.y"
+#line 67 "parser.y"
                            { if (x != (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1208 "parser.tab.c"
+#line 1207 "parser.tab.c"
     break;
 
   case 16: /* cond: _X LESS _VAR  */
-#line 76 "parser.y"
+#line 69 "parser.y"
                            { if (x < (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1214 "parser.tab.c"
+#line 1213 "parser.tab.c"
     break;
 
   case 17: /* cond: _X MORE _VAR  */
-#line 77 "parser.y"
+#line 70 "parser.y"
                            { if (x > (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1220 "parser.tab.c"
+#line 1219 "parser.tab.c"
     break;
 
   case 18: /* cond: _X EQEQ _VAR  */
-#line 78 "parser.y"
+#line 71 "parser.y"
                            { if (x == (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1226 "parser.tab.c"
+#line 1225 "parser.tab.c"
     break;
 
   case 19: /* cond: _X NOT_EQ _VAR  */
-#line 79 "parser.y"
+#line 72 "parser.y"
                            { if (x != (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1232 "parser.tab.c"
+#line 1231 "parser.tab.c"
     break;
 
   case 20: /* cond: _Y LESS NUM  */
-#line 81 "parser.y"
+#line 74 "parser.y"
                            { if (y < (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1238 "parser.tab.c"
+#line 1237 "parser.tab.c"
     break;
 
   case 21: /* cond: _Y MORE NUM  */
-#line 82 "parser.y"
+#line 75 "parser.y"
                            { if (y > (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1244 "parser.tab.c"
+#line 1243 "parser.tab.c"
     break;
 
   case 22: /* cond: _Y EQEQ NUM  */
-#line 83 "parser.y"
+#line 76 "parser.y"
                            { if (y == (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1250 "parser.tab.c"
+#line 1249 "parser.tab.c"
     break;
 
   case 23: /* cond: _Y NOT_EQ NUM  */
-#line 84 "parser.y"
+#line 77 "parser.y"
                            { if (y != (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1256 "parser.tab.c"
+#line 1255 "parser.tab.c"
     break;
 
   case 24: /* cond: _Y LESS _VAR  */
-#line 86 "parser.y"
+#line 79 "parser.y"
                            { if (y < (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1262 "parser.tab.c"
+#line 1261 "parser.tab.c"
     break;
 
   case 25: /* cond: _Y MORE _VAR  */
-#line 87 "parser.y"
+#line 80 "parser.y"
                            { if (y > (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1268 "parser.tab.c"
+#line 1267 "parser.tab.c"
     break;
 
   case 26: /* cond: _Y EQEQ _VAR  */
-#line 88 "parser.y"
+#line 81 "parser.y"
                            { if (y == (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1274 "parser.tab.c"
+#line 1273 "parser.tab.c"
     break;
 
   case 27: /* cond: _Y NOT_EQ _VAR  */
-#line 89 "parser.y"
+#line 82 "parser.y"
                            { if (y != (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1280 "parser.tab.c"
+#line 1279 "parser.tab.c"
     break;
 
 
-#line 1284 "parser.tab.c"
+#line 1283 "parser.tab.c"
 
       default: break;
     }
@@ -1473,7 +1472,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 91 "parser.y"
+#line 84 "parser.y"
 
 
 int main() {
