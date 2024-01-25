@@ -1,7 +1,7 @@
 %{
-#include <stdio.h>
-#include "parser.tab.h"  // Bison-generated header file
-%}
+	#include <stdio.h>
+	#include "parser.tab.h"  // Bison-generated header file
+%} 
 
 %%
 "char"       {printf("%s \t- DATATYPE\n", yytext) ;return DATATYPE; }
@@ -30,7 +30,7 @@
 \"[^\"\n]*\"            { yylval.string = strdup(yytext); return STRING; }              
 
 [ \t\n]      ;  // Ignore whitespace and newlines
-.            {printf("%s \t- KEYWORD\n", yytext) ;return UNKNOWN_CHARACTER; }
+.            { printf("%s \t- KEYWORD\n", yytext); return UNKNOWN_CHARACTER; } 
 %%
 
 int yywrap() {

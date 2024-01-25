@@ -54,18 +54,35 @@ extern int yydebug;
     YYEOF = 0,                     /* "end of file"  */
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
-    INT = 258,                     /* INT  */
-    MAIN = 259,                    /* MAIN  */
-    LEFT_BRACE = 260,              /* LEFT_BRACE  */
-    RIGHT_BRACE = 261,             /* RIGHT_BRACE  */
+    LEFT_BRACE = 258,              /* LEFT_BRACE  */
+    RIGHT_BRACE = 259,             /* RIGHT_BRACE  */
+    LEFT_PARENTH = 260,            /* LEFT_PARENTH  */
+    RIGHT_PARENTH = 261,           /* RIGHT_PARENTH  */
     UNKNOWN_CHARACTER = 262,       /* UNKNOWN_CHARACTER  */
-    DATATYPE = 263,                /* DATATYPE  */
-    IDENTIFIER = 264,              /* IDENTIFIER  */
-    EQUALS = 265,                  /* EQUALS  */
-    INTEGER = 266,                 /* INTEGER  */
-    SEMICOLON = 267,               /* SEMICOLON  */
-    STRING = 268,                  /* STRING  */
-    NUMERIC_DATATYPE = 269         /* NUMERIC_DATATYPE  */
+    INT = 263,                     /* INT  */
+    MAIN = 264,                    /* MAIN  */
+    VAR = 265,                     /* VAR  */
+    SEMICOLON = 266,               /* SEMICOLON  */
+    PRINTF = 267,                  /* PRINTF  */
+    IF = 268,                      /* IF  */
+    ELSE = 269,                    /* ELSE  */
+    ELSEIF = 270,                  /* ELSEIF  */
+    _VAR = 271,                    /* _VAR  */
+    NUM = 272,                     /* NUM  */
+    _X = 273,                      /* _X  */
+    _Y = 274,                      /* _Y  */
+    _Z = 275,                      /* _Z  */
+    EQ = 276,                      /* EQ  */
+    EQEQ = 277,                    /* EQEQ  */
+    LESS = 278,                    /* LESS  */
+    MORE = 279,                    /* MORE  */
+    LET = 280,                     /* LET  */
+    MET = 281,                     /* MET  */
+    DIF = 282,                     /* DIF  */
+    NOT_EQ = 283,                  /* NOT_EQ  */
+    OR = 284,                      /* OR  */
+    AND = 285,                     /* AND  */
+    NOT = 286                      /* NOT  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -74,12 +91,12 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 11 "parser.y"
+#line 12 "parser.y"
 
-    int integer;
-    char *string;
+    int val;
+    int a;
 
-#line 83 "parser.tab.h"
+#line 100 "parser.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;
