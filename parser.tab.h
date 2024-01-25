@@ -64,25 +64,45 @@ extern int yydebug;
     VAR = 265,                     /* VAR  */
     SEMICOLON = 266,               /* SEMICOLON  */
     PRINTF = 267,                  /* PRINTF  */
-    NUM = 268,                     /* NUM  */
-    EQ = 269,                      /* EQ  */
-    LESS = 270,                    /* LESS  */
-    MORE = 271,                    /* MORE  */
-    LET = 272,                     /* LET  */
-    MET = 273,                     /* MET  */
-    DIF = 274,                     /* DIF  */
-    NOT_EQ = 275,                  /* NOT_EQ  */
-    OR = 276,                      /* OR  */
-    AND = 277,                     /* AND  */
-    NOT = 278,                     /* NOT  */
-    IF = 279,                      /* IF  */
-    ELSE = 280,                    /* ELSE  */
-    ELSEIF = 281                   /* ELSEIF  */
+    IF = 268,                      /* IF  */
+    ELSE = 269,                    /* ELSE  */
+    ELSEIF = 270,                  /* ELSEIF  */
+    _VAR = 271,                    /* _VAR  */
+    NUM = 272,                     /* NUM  */
+    _X = 273,                      /* _X  */
+    _Y = 274,                      /* _Y  */
+    _Z = 275,                      /* _Z  */
+    EQ = 276,                      /* EQ  */
+    EQEQ = 277,                    /* EQEQ  */
+    LESS = 278,                    /* LESS  */
+    MORE = 279,                    /* MORE  */
+    LET = 280,                     /* LET  */
+    MET = 281,                     /* MET  */
+    DIF = 282,                     /* DIF  */
+    NOT_EQ = 283,                  /* NOT_EQ  */
+    OR = 284,                      /* OR  */
+    AND = 285,                     /* AND  */
+    NOT = 286                      /* NOT  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
 
 /* Value type.  */
+#if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
+union YYSTYPE
+{
+#line 12 "parser.y"
+
+    int val;
+    int a;
+
+#line 100 "parser.tab.h"
+
+};
+typedef union YYSTYPE YYSTYPE;
+# define YYSTYPE_IS_TRIVIAL 1
+# define YYSTYPE_IS_DECLARED 1
+#endif
 
 
 extern YYSTYPE yylval;
