@@ -10,12 +10,18 @@ int yylex(void);
 %}
 
 %union {
+    int integer;
+    char *string;
+}
+
+%union {
     int val;
     int a;
 }
 
 %token LEFT_BRACE RIGHT_BRACE LEFT_PARENTH RIGHT_PARENTH UNKNOWN_CHARACTER
-%token INT MAIN VAR SEMICOLON PRINTF IF ELSE ELSEIF
+%token DATATYPE IDENTIFIER EQUALS INTEGER SEMICOLON STRING NUMERIC_DATATYPE
+ %token INT MAIN VAR SEMICOLON PRINTF IF ELSE ELSEIF
 %token<a> _VAR
 %token<a> NUM
 %type<a> cond
@@ -30,17 +36,35 @@ int yylex(void);
 
 %%
 
-program: main_declaration
+program: c-type-langueage
         | init_variables
         | if_statement
         ;
 
-main_declaration: INT MAIN LEFT_BRACE RIGHT_BRACE
+c-type-langueage: main_declaration
+                | variables
+                
+main_declaration: INT MAIN LEFT_BRACE RIGHT_BRACE SEMICOLON
                     {
                         printf("Found a main function!\n");
                     }
                     ;
 
+variables: variable_declaration_char
+        | variable_declaration_int
+        ;
+
+variable_declaration_char:NUMERIC_DATATYPE IDENTIFIER EQUALS INTEGER SEMICOLON
+                        {
+                            printf("Numeric variable declaration");
+                        }
+                        ;
+
+variable_declaration_int:DATATYPE IDENTIFIER EQUALS STRING SEMICOLON
+                        {
+                            printf("Char type variable declaration");
+                        }
+                        ;
 
 init_variables:
                 _X EQ NUM SEMICOLON { x = $3; }
