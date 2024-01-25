@@ -4,6 +4,7 @@
 void yyerror(const char* s) {
     fprintf(stderr, "Error: %s\n", s);
 }
+
 int x = 0, y = 0, z = 0;
 
 int yylex(void);
@@ -21,7 +22,7 @@ int yylex(void);
 
 %token LEFT_BRACE RIGHT_BRACE LEFT_PARENTH RIGHT_PARENTH UNKNOWN_CHARACTER
 %token DATATYPE IDENTIFIER EQUALS INTEGER SEMICOLON STRING NUMERIC_DATATYPE
- %token INT MAIN VAR SEMICOLON PRINTF IF ELSE ELSEIF
+%token INT MAIN VAR PRINTF IF ELSE ELSEIF
 %token<a> _VAR
 %token<a> NUM
 %type<a> cond
@@ -35,14 +36,14 @@ int yylex(void);
 
 
 %%
-
 program: c-type-langueage
-        | init_variables
-        | if_statement
         ;
 
 c-type-langueage: main_declaration
                 | variables
+                | init_variables
+                | if_statement
+                ;
                 
 main_declaration: INT MAIN LEFT_BRACE RIGHT_BRACE SEMICOLON
                     {
