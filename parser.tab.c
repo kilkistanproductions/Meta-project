@@ -264,92 +264,7 @@
 #  endif
 # endif
 
-
-/* Debug traces.  */
-#ifndef YYDEBUG
-# define YYDEBUG 0
-#endif
-#if YYDEBUG
-extern int yydebug;
-#endif
-
-/* Token kinds.  */
-#ifndef YYTOKENTYPE
-# define YYTOKENTYPE
-  enum yytokentype
-  {
-    YYEMPTY = -2,
-    YYEOF = 0,                     /* "end of file"  */
-    YYerror = 256,                 /* error  */
-    YYUNDEF = 257,                 /* "invalid token"  */
-    LEFT_BRACE = 258,              /* LEFT_BRACE  */
-    RIGHT_BRACE = 259,             /* RIGHT_BRACE  */
-    LEFT_PARENTH = 260,            /* LEFT_PARENTH  */
-    RIGHT_PARENTH = 261,           /* RIGHT_PARENTH  */
-    UNKNOWN_CHARACTER = 262,       /* UNKNOWN_CHARACTER  */
-    DATATYPE = 263,                /* DATATYPE  */
-    IDENTIFIER = 264,              /* IDENTIFIER  */
-    EQUALS = 265,                  /* EQUALS  */
-    INTEGER = 266,                 /* INTEGER  */
-    SEMICOLON = 267,               /* SEMICOLON  */
-    STRING = 268,                  /* STRING  */
-    NUMERIC_DATATYPE = 269,        /* NUMERIC_DATATYPE  */
-    INT = 270,                     /* INT  */
-    MAIN = 271,                    /* MAIN  */
-    VAR = 272,                     /* VAR  */
-    PRINTF = 273,                  /* PRINTF  */
-    IF = 274,                      /* IF  */
-    ELSE = 275,                    /* ELSE  */
-    ELSEIF = 276,                  /* ELSEIF  */
-    _VAR = 277,                    /* _VAR  */
-    NUM = 278,                     /* NUM  */
-    _X = 279,                      /* _X  */
-    _Y = 280,                      /* _Y  */
-    _Z = 281,                      /* _Z  */
-    EQ = 282,                      /* EQ  */
-    EQEQ = 283,                    /* EQEQ  */
-    LESS = 284,                    /* LESS  */
-    MORE = 285,                    /* MORE  */
-    LET = 286,                     /* LET  */
-    MET = 287,                     /* MET  */
-    DIF = 288,                     /* DIF  */
-    NOT_EQ = 289,                  /* NOT_EQ  */
-    OR = 290,                      /* OR  */
-    AND = 291,                     /* AND  */
-    NOT = 292                      /* NOT  */
-  };
-  typedef enum yytokentype yytoken_kind_t;
-#endif
-
-/* Value type.  */
-#if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-union YYSTYPE
-{
-#line 175 "parser.y"
-
-    int integer;
-    char *string;
-#line 180 "parser.y"
-
-    int val;
-    int a;
-
-#line 338 "parser.tab.c"
-
-};
-typedef union YYSTYPE YYSTYPE;
-# define YYSTYPE_IS_TRIVIAL 1
-# define YYSTYPE_IS_DECLARED 1
-#endif
-
-
-extern YYSTYPE yylval;
-
-
-int yyparse (void);
-
-
-
+#include "parser.tab.h"
 /* Symbol kind.  */
 enum yysymbol_kind_t
 {
@@ -1419,13 +1334,13 @@ yyreduce:
   case 7: /* var_type: DATATYPE  */
 #line 211 "parser.y"
                    { insertCT((yyvsp[0].string), "string");}
-#line 1423 "parser.tab.c"
+#line 1338 "parser.tab.c"
     break;
 
   case 8: /* var_type: NUMERIC_DATATYPE  */
 #line 212 "parser.y"
                            { insertCT((yyvsp[0].string), "numeric_datatype");}
-#line 1429 "parser.tab.c"
+#line 1344 "parser.tab.c"
     break;
 
   case 10: /* main_declaration: INT MAIN LEFT_BRACE RIGHT_BRACE SEMICOLON  */
@@ -1433,7 +1348,7 @@ yyreduce:
                     {
                         printf("Found a main function!\n");
                     }
-#line 1437 "parser.tab.c"
+#line 1352 "parser.tab.c"
     break;
 
   case 13: /* variable_declaration_char: NUMERIC_DATATYPE IDENTIFIER EQUALS INTEGER SEMICOLON  */
@@ -1441,7 +1356,7 @@ yyreduce:
                         {
                             printf("Numeric variable declaration");
                         }
-#line 1445 "parser.tab.c"
+#line 1360 "parser.tab.c"
     break;
 
   case 14: /* variable_declaration_int: DATATYPE IDENTIFIER EQUALS STRING SEMICOLON  */
@@ -1449,19 +1364,19 @@ yyreduce:
                         {
                             printf("Char type variable declaration");
                         }
-#line 1453 "parser.tab.c"
+#line 1368 "parser.tab.c"
     break;
 
   case 15: /* $@1: %empty  */
 #line 240 "parser.y"
                                     { x = (yyvsp[-1].a); }
-#line 1459 "parser.tab.c"
+#line 1374 "parser.tab.c"
     break;
 
   case 16: /* init_variables: _X EQ NUM SEMICOLON $@1 _Y EQ NUM SEMICOLON  */
 #line 241 "parser.y"
                                     { y = (yyvsp[-6].a); }
-#line 1465 "parser.tab.c"
+#line 1380 "parser.tab.c"
     break;
 
   case 17: /* if_statement: IF LEFT_PARENTH cond RIGHT_PARENTH LEFT_BRACE then RIGHT_BRACE else_condition  */
@@ -1469,125 +1384,125 @@ yyreduce:
             {
                 { if ((yyvsp[-5].a) == 1) { z = (yyvsp[-2].a); } printf("\nz=%d\n", z); }
             }
-#line 1473 "parser.tab.c"
+#line 1388 "parser.tab.c"
     break;
 
   case 18: /* else_condition: ELSE LEFT_BRACE then RIGHT_BRACE SEMICOLON  */
 #line 251 "parser.y"
                                                            { z = (yyvsp[-2].a); }
-#line 1479 "parser.tab.c"
+#line 1394 "parser.tab.c"
     break;
 
   case 19: /* else_condition: ELSEIF LEFT_PARENTH cond RIGHT_PARENTH LEFT_BRACE then RIGHT_BRACE else_condition  */
 #line 252 "parser.y"
                                                                                                 { if ((yyvsp[-5].a) == 1) { z = (yyvsp[-2].a); } }
-#line 1485 "parser.tab.c"
+#line 1400 "parser.tab.c"
     break;
 
   case 20: /* then: _Z EQ NUM SEMICOLON  */
 #line 255 "parser.y"
                           { (yyval.a) = (yyvsp[-1].a); }
-#line 1491 "parser.tab.c"
+#line 1406 "parser.tab.c"
     break;
 
   case 21: /* cond: _X LESS NUM  */
 #line 258 "parser.y"
                            { if (x < (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1497 "parser.tab.c"
+#line 1412 "parser.tab.c"
     break;
 
   case 22: /* cond: _X MORE NUM  */
 #line 259 "parser.y"
                            { if (x > (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1503 "parser.tab.c"
+#line 1418 "parser.tab.c"
     break;
 
   case 23: /* cond: _X EQEQ NUM  */
 #line 260 "parser.y"
                            { if (x == (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1509 "parser.tab.c"
+#line 1424 "parser.tab.c"
     break;
 
   case 24: /* cond: _X NOT_EQ NUM  */
 #line 261 "parser.y"
                            { if (x != (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1515 "parser.tab.c"
+#line 1430 "parser.tab.c"
     break;
 
   case 25: /* cond: _X LESS _VAR  */
 #line 263 "parser.y"
                            { if (x < (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1521 "parser.tab.c"
+#line 1436 "parser.tab.c"
     break;
 
   case 26: /* cond: _X MORE _VAR  */
 #line 264 "parser.y"
                            { if (x > (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1527 "parser.tab.c"
+#line 1442 "parser.tab.c"
     break;
 
   case 27: /* cond: _X EQEQ _VAR  */
 #line 265 "parser.y"
                            { if (x == (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1533 "parser.tab.c"
+#line 1448 "parser.tab.c"
     break;
 
   case 28: /* cond: _X NOT_EQ _VAR  */
 #line 266 "parser.y"
                            { if (x != (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1539 "parser.tab.c"
+#line 1454 "parser.tab.c"
     break;
 
   case 29: /* cond: _Y LESS NUM  */
 #line 268 "parser.y"
                            { if (y < (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1545 "parser.tab.c"
+#line 1460 "parser.tab.c"
     break;
 
   case 30: /* cond: _Y MORE NUM  */
 #line 269 "parser.y"
                            { if (y > (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1551 "parser.tab.c"
+#line 1466 "parser.tab.c"
     break;
 
   case 31: /* cond: _Y EQEQ NUM  */
 #line 270 "parser.y"
                            { if (y == (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1557 "parser.tab.c"
+#line 1472 "parser.tab.c"
     break;
 
   case 32: /* cond: _Y NOT_EQ NUM  */
 #line 271 "parser.y"
                            { if (y != (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1563 "parser.tab.c"
+#line 1478 "parser.tab.c"
     break;
 
   case 33: /* cond: _Y LESS _VAR  */
 #line 273 "parser.y"
                            { if (y < (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1569 "parser.tab.c"
+#line 1484 "parser.tab.c"
     break;
 
   case 34: /* cond: _Y MORE _VAR  */
 #line 274 "parser.y"
                            { if (y > (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1575 "parser.tab.c"
+#line 1490 "parser.tab.c"
     break;
 
   case 35: /* cond: _Y EQEQ _VAR  */
 #line 275 "parser.y"
                            { if (y == (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1581 "parser.tab.c"
+#line 1496 "parser.tab.c"
     break;
 
   case 36: /* cond: _Y NOT_EQ _VAR  */
 #line 276 "parser.y"
                            { if (y != (yyvsp[0].a)) { (yyval.a) = 1; } else { (yyval.a) = 0; } }
-#line 1587 "parser.tab.c"
+#line 1502 "parser.tab.c"
     break;
 
 
-#line 1591 "parser.tab.c"
+#line 1506 "parser.tab.c"
 
       default: break;
     }
